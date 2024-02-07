@@ -26,14 +26,29 @@ imgs=$(curl -s -k -X $'GET' \
     $"$site/history?max_items=1" | jq '.[].outputs."10".images[].filename')
 
 if [ "$imgs" = "null" ]; then
-sleep 10
+sleep 5
 imgs=$(curl -s -k -X $'GET' \
      -H $'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0' -H $'Accept: */*' -H $'Accept-Language: en-GB,en;q=0.5' -H $'Accept-Encoding: gzip, deflate, br' -H $'Comfy-User: undefined' -H $'Connection: close' \
     $"$site/history?max_items=1" | jq '.[].outputs."10".images[].filename')
 fi
 
 if [ "$imgs" = "null" ]; then
-sleep 10
+sleep 5
+imgs=$(curl -s -k -X $'GET' \
+     -H $'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0' -H $'Accept: */*' -H $'Accept-Language: en-GB,en;q=0.5' -H $'Accept-Encoding: gzip, deflate, br' -H $'Comfy-User: undefined' -H $'Connection: close' \
+    $"$site/history?max_items=1" | jq '.[].outputs."10".images[].filename')
+fi
+
+
+if [ "$imgs" = "null" ]; then
+sleep 5
+imgs=$(curl -s -k -X $'GET' \
+     -H $'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0' -H $'Accept: */*' -H $'Accept-Language: en-GB,en;q=0.5' -H $'Accept-Encoding: gzip, deflate, br' -H $'Comfy-User: undefined' -H $'Connection: close' \
+    $"$site/history?max_items=1" | jq '.[].outputs."10".images[].filename')
+fi
+
+if [ "$imgs" = "null" ]; then
+sleep 5
 imgs=$(curl -s -k -X $'GET' \
      -H $'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0' -H $'Accept: */*' -H $'Accept-Language: en-GB,en;q=0.5' -H $'Accept-Encoding: gzip, deflate, br' -H $'Comfy-User: undefined' -H $'Connection: close' \
     $"$site/history?max_items=1" | jq '.[].outputs."10".images[].filename')
@@ -42,7 +57,7 @@ fi
 for i in $imgs;
 do 
 url=$(echo $i | tr -d '"')
-curl -sk "$site/view?filename=$url&subfolder=&type=temp" -o $url&
+timeout 20 curl -sk "$site/view?filename=$url&subfolder=&type=temp" -o $url&
 done
 wait
 
