@@ -187,7 +187,10 @@
             <div class="col-full w-full">
                 <form method="post" action="/comfypwn/index.php?gif=1" class="flex flex-wrap w-full" onsubmit="send(event,this)">
                
-<label for="target" class="whitespace-nowrap text-black dark:text-[#2cce73]">Target : </label><input type="text" name="target" id="target" value="http://211.14.2.90" class="rounded text-black dark:text-[#2cce73] border-[#2cce73] dark:bg-[#0d1016] focus:outline-none border dark:border-[#005704] hover:border-[#2CCE73] focus:border-[#2CCE73] py-1 px-4"></input><button class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" type="button" name="list" onclick="loadmod();"  role="button">List Models</button> 
+<label for="target" class="whitespace-nowrap text-black dark:text-[#2cce73]">Target : </label><input type="text" id="target"name="target"  list="productName" class="rounded text-black dark:text-[#2cce73] border-[#2cce73] dark:bg-[#0d1016] focus:outline-none border dark:border-[#005704] hover:border-[#2CCE73] focus:border-[#2CCE73] py-1 px-4" />
+<datalist id="productName">
+  <option>http://211.14.2.90</option>
+</datalist></input><button class="bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white  p-2 rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all" type="button" name="list" onclick="loadmod();"  role="button">List Modeles</button> 
                        
                     <!-- Type  -->
                     <div class="flex flex-wrap w-full justify-between mb-4 gap-2 gap-y-2">
@@ -195,7 +198,7 @@
                        
                             <label for="param1" class="whitespace-nowrap text-black dark:text-[#2cce73]">Model :</label>
                             <select name="param1" id="param1" class=" focus:outline-none bg-[#2CCE73] text-black dark:bg-transparent dark:text-[#2CCE73] font-medium border border-white rounded dark:border dark:border-[#005704] hover:border-black dark:hover:border-[#2CCE73] focus:border-black dark:focus:border-[#2CCE73] transition-all py-1 px-4">
-                                <option value="choix_model">Choix Modele</option>
+                                <option value="choix_model">Choix Modeles</option>
                             </select></br>
                         </div>
                        </div>
